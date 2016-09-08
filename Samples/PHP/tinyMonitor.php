@@ -2,6 +2,8 @@
 
 class tinyMonitor
 {
+	// Constants
+	
 	const Version	= 1;
 	
 	const Message	= 1;
@@ -14,10 +16,14 @@ class tinyMonitor
 	const Warning	= 2;
 	const Error		= 3;
 
+	// General
+	
 	public function __construct( $pTitle )
 	{
 		$this->mTitle = $pTitle;
 	}
+	
+	// Items
 
 	public function AddMessage( $pMessage )
 	{
@@ -56,6 +62,8 @@ class tinyMonitor
 		);		
 	}
 	
+	// Actions
+	
 	public function AddAction( $pName, $pAction )
 	{
 		$this->mActions[] = array(
@@ -69,6 +77,8 @@ class tinyMonitor
 		$getKeys = array_keys( $_GET );
 		return isset( $getKeys[ 0 ] ) ? trim( $getKeys[ 0 ] ) : '';
 	}
+	
+	// Response
 	
 	public function Send()
 	{
@@ -96,9 +106,9 @@ class tinyMonitor
 		exit( 0 );
 	}
 
+	// Private Members
+	
 	private $mTitle = '';
 	private $mItems = array();
 	private $mActions = array();
 }
-
-?>
